@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Store APP</title>
+</head>
+
+<body>
+
+    <nav class="navbar  bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" target="_blank" href="https://www.bsale.cl/">
+                <img src="./assets/logo.png" alt="Logo">
+            </a>
+         
+
+            <button class="btn btn-outline-success" type="button" onClick="pay()">Pagar</button>
+        </div>
+    </nav>
+
+
+    <main class="container">
+
+        <div class="content-container justify-content-center">
+            <h2 class="content-title text-center">Nuestros Productos</h2>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <input id="buscar-producto" class="form-control me-2 " type="text" placeholder="Buscar producto">
+                    <div id="error-search"  class="form-text text-danger"></div>
+
+                </div>
+
+                <div class="d-flex">
+                    <div class="dropdown mx-3">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorías
+                        </button>
+
+                        <ul id="category-list" class="dropdown-menu"></ul>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Ordenar por:
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item category" onClick="sortLowToHigh()">
+                                    Precio: Menor a Mayor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item category" onClick="sortHighToLow()">
+                                    Precio: Mayor a Menor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item category" onClick="sortNameAZ()">
+                                    Nombre A - Z
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item category" onClick="sortNameZA()">
+                                    Nombre Z - A
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item category" onClick="sortForDiscount()">
+                                    Descuento
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="underline"></div>
+            <div class="buttons-container"></div>
+            <div id="products" class="row shadow justify-content-center mt-4 p-4 mb-4"></div>
+
+        </div>
+
+    </main>
+
+    <script src="js/external/all.min.js"></script>
+    <script src="js/external/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/displayInScreen.js"></script>
+    <script src="js/orderProducts.js"></script>
+</body>
+
+</html>
