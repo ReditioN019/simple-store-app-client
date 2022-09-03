@@ -1,7 +1,9 @@
 const displayCategories = (categories) => categories.map((item) => (
     `
    <li>
-       <a id="category" class="dropdown-item category"onClick="productsByCategory(${item.id})">${item.name}</a>   
+       <a id="category" class="dropdown-item category"onClick="productsByCategory(${item.id})">
+        ${item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+       </a>   
    </li>     
    `
 ));
