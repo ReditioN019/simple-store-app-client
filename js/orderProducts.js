@@ -14,24 +14,11 @@ const sortNameAZ = () => {
 }
 
 const sortNameZA = () => {
-    // const products = arrayProducts.sort((a,b) => a.name < b.name ? 1: )
-    const products = arrayProducts.sort((a,b) => {
-        if(a.name < b.name){
-            return 1
-        }
-        return -1
-    })
-
+    const products = arrayProducts.sort((a,b) => a.name < b.name ? 1: -1)
     renderProducts(products)
 }
 
 const sortForDiscount = () => {
-    const products = arrayProducts.sort((a,b) => {
-        if(a.discount < b.discount){
-            return 1
-        }
-        return -1
-    })
-
+    const products = arrayProducts.sort((a,b) => a.discount < b.discount ? 1 : -1)
     renderProducts(products)
 }

@@ -1,6 +1,6 @@
 const loadProducts = async() => {
     try{
-        const resp = await fetch('http://localhost:4000/products');
+        const resp = await fetch('https://srojo-simple-store-app.herokuapp.com/v1/api/products');
 
         if(!resp.ok){
             renderError()
@@ -16,10 +16,10 @@ const loadProducts = async() => {
 }
 
 searchProduct.addEventListener('keyup', e => {
-    fetch('http://localhost:4000/products', {
+    fetch('https://srojo-simple-store-app.herokuapp.com/v1/api/products', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({payload: e.target.value})
+        body: JSON.stringify({ payload: e.target.value })
         
     }).then(res => res.json()).then(data => {
         let payload = data.payload;
@@ -32,7 +32,7 @@ searchProduct.addEventListener('keyup', e => {
 
 const loadCategories = async() => {
     try {
-        const resp = await fetch('http://localhost:4000/category')
+        const resp = await fetch('https://srojo-simple-store-app.herokuapp.com/v1/api/category')
 
         if(!resp.ok) {
             renderError()
@@ -48,7 +48,7 @@ const loadCategories = async() => {
 
 const loadProductsByCategory = async(id) => {
     try {
-        const resp = await fetch(`http://localhost:4000/category/${id}`)
+        const resp = await fetch(`https://srojo-simple-store-app.herokuapp.com/v1/api/category/${id}`)
 
         if(!resp.ok){
             renderError()

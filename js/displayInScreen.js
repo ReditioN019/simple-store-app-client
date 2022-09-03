@@ -17,16 +17,15 @@ const createProductsItems = products => products.map(product => {
                 </div>
                 <div class="card-body">
                     <h6 class="card-title m-0 mb-2 text-success">${name}</h6>
-                    <p class="">
+                    <p class="fw-bold">
                         ${
-                            discount === 0 ? '' : discount+"%"
+                            discount === 0 ? '</br>' : discount+"% de descuento"
                         }
                     </p>
                     <div class="d-flex justify-content-between align align-items-center">
                     <h3 class="mt-2 price">$${price}</h3>
                     <button 
                         class="btn btn-primary" 
-                        onclick="addProduct()"
                     >
                         <i class="fa-solid fa-cart-shopping cart"></i>
                     </button>  
@@ -64,6 +63,7 @@ const renderLoadSpinner = () => {
 }
 
 const renderProducts = (products) => {
+    arrayProducts = products
     const itemString = createProductsItems(arrayProducts);
     productsList.innerHTML = itemString;
 }
