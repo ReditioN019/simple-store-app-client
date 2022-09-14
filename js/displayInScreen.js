@@ -1,15 +1,15 @@
 const displayCategories = (categories) => categories.map((item) => (
     `
    <li>
-       <a id="category" class="dropdown-item category"onClick="productsByCategory(${item.id})">
-        ${item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+       <a id="category" class="dropdown-item category" onClick="productsByCategory(${item.id})">
+            ${item.name.charAt(0).toUpperCase() + item.name.slice(1)}
        </a>   
    </li>     
    `
 ));
 
 
-const createProductsItems = products => products.map(product => {
+const createProductsItems = products => products.map( product => {
     const { name, price, url_image, discount } = product;
     return `   
             <div class="col-12 col-md-6 col-lg-3  mt-2 product">
@@ -66,8 +66,14 @@ const renderLoadSpinner = () => {
 
 const renderProducts = (products) => {
     arrayProducts = products
-    const itemString = createProductsItems(arrayProducts);
-    productsList.innerHTML = itemString;
+    if(arrayProducts.length === 0){
+        renderNotFound()
+    }
+    else{
+        errorSearch.innerHTML= ''
+        const itemString = createProductsItems(arrayProducts);
+        productsList.innerHTML = itemString;
+    }  
 }
 
 const renderCategories = (categories) => {
@@ -92,4 +98,8 @@ const renderError = () => {
 
 const searchError = () => {
     errorSearch.innerHTML = "En estos momentos no se puede realizar la búsqueda"
+}
+
+const renderNotFound = () => {
+    errorSearch.innerHTML = "No se encontraron productos"
 }

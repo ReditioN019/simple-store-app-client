@@ -19,11 +19,16 @@ searchProduct.addEventListener('keyup', e => {
     fetch('https://srojo-simple-store-app.herokuapp.com/v1/api/products', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ payload: e.target.value })
-        
+        body: JSON.stringify({ payload: e.target.value })   
     }).then(res => res.json()).then(data => {
-        let payload = data.payload;
-        renderProducts(payload);
+
+        if(data.payload.length === 0){
+            renderProducts([]);
+        }
+        else{
+            let payload = data.payload;
+            renderProducts(payload);
+        }  
     })
     .catch(err => searchError());
 })
