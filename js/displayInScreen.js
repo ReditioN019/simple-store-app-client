@@ -66,14 +66,15 @@ const renderLoadSpinner = () => {
 
 const renderProducts = (products) => {
     arrayProducts = products
+    //* Si
     if(arrayProducts.length === 0){
         renderNotFound()
     }
     else{
         errorSearch.innerHTML= ''
-        const itemString = createProductsItems(arrayProducts);
-        productsList.innerHTML = itemString;
     }  
+    const itemString = createProductsItems(arrayProducts);
+    productsList.innerHTML = itemString;
 }
 
 const renderCategories = (categories) => {
